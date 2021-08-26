@@ -1,0 +1,7 @@
+.Calculator {
+  grid-area: 1 / 1 / 5 / 3;
+
+  @screen landscape {
+    grid-area: 1 / 1 / 3 / 4;
+  }
+}

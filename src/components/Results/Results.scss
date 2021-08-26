@@ -1,0 +1,7 @@
+.Results {
+  grid-area: 5 / 1 / 6 / 3;
+
+  @screen landscape {
+    grid-area: 1 / 4 / 3 / 5;
+  }
+}
