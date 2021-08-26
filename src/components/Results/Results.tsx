@@ -1,14 +1,14 @@
 import React from 'react';
-import './Results.scss'
+import Result from '../Result/Result';
+import './Results.scss';
 
-function Results() {
+const Results: React.FC = () => {
   return (
-    <div className="flex flex-row bg-electric landscape:flex-col Results">
-      <div className="container">
-        Hello.
-      </div>
+    <div className="flex flex-row text-center bg-electric landscape:flex-col Results">
+      <Result type="remaining" value={30} />
+      <Result type="total" value={124} />
     </div>
   );
-}
+};
 
 export default Results;

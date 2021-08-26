@@ -1,12 +1,12 @@
 .App {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-template-rows: auto repeat(7, 1fr);
+  grid-column-gap: 0;
+  grid-row-gap: 0;
 
   @screen landscape {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: auto repeat(2, 1fr);
   }
 }

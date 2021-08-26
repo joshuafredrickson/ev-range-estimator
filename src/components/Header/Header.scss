@@ -1,0 +1,7 @@
+.Header {
+  grid-area: 1 / 1 / 2 / 3;
+
+  @screen landscape {
+    grid-area: 1 / 1 / 2 / 4;
+  }
+}

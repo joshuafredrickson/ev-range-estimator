@@ -1,15 +1,17 @@
 import React from 'react';
+import Header from '../Header/Header';
 import Calculator from '../Calculator/Calculator';
 import Results from '../Results/Results';
 import './App.scss';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="w-full h-full App">
-      <Calculator/>
-      <Results/>
+      <Header />
+      <Calculator />
+      <Results />
     </div>
   );
-}
+};
 
 export default App;
