@@ -1,6 +1,10 @@
 module.exports = {
   root: true,
-  extends: ['eslint:recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+  ],
   globals: {},
   env: {
     node: true,
@@ -8,6 +12,7 @@ module.exports = {
     amd: true,
     browser: true,
   },
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       globalReturn: true,
@@ -17,7 +22,15 @@ module.exports = {
     ecmaVersion: 2017,
     sourceType: 'module',
   },
-  plugins: ['import'],
+  overrides: [
+    {
+      files: ['*.ts'],
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+      },
+    },
+  ],
+  plugins: ['import', '@typescript-eslint'],
   settings: {
     'import/core-modules': [],
     'import/ignore': [
