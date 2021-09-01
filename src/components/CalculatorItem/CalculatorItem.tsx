@@ -8,7 +8,9 @@ export interface CalculatorItemProps {
 
 const CalculatorItem = ({ type }: CalculatorItemProps): JSX.Element => {
   const { calculations, setCalculations } = useCalculations();
-  const itemType = calculations ? calculations[type] : null;
+  const itemType = calculations
+    ? calculations[type]
+    : { key: '', label: '', units: '', value: 0 };
 
   const handleChange = (event: React.ChangeEvent) => {
     const { value } = event.target as HTMLInputElement;

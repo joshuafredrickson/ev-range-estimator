@@ -1,28 +1,35 @@
 import { createContext, useContext, useState } from 'react';
 
-export interface CalculationsProps {
-  [index: string]:
-    | {
-        key: string;
-        label: string;
-        units: string;
-        value: number;
-      }
-    | undefined;
+interface Calculation {
+  key: string;
+  label: string;
+  units: string;
+  value: number;
 }
 
-export interface CalculationsProviderProps {
-  values: CalculationsProps;
+interface Calculations {
+  [index: string]: Calculation;
+}
+
+interface CalculationsContextProps {
+  calculations: Calculations;
+  setCalculations: (calculations: Calculations) => void;
+}
+
+interface CalculationsProviderProps {
+  values: Calculations;
   children?: React.ReactNode;
 }
 
-export const CalculationsContext = createContext<any>({});
+const CalculationsContext = createContext<CalculationsContextProps>(
+  {} as CalculationsContextProps
+);
 
 export const CalculationsProvider = ({
   values,
   children,
 }: CalculationsProviderProps): JSX.Element => {
-  const [calculations, setCalculations] = useState<CalculationsProps>(values);
+  const [calculations, setCalculations] = useState<Calculations>(values);
 
   const providerValue = {
     calculations,

@@ -1,28 +1,35 @@
 import { createContext, useContext, useState } from 'react';
 
-export interface ResultsProps {
-  [index: string]:
-    | {
-        key: string;
-        label: string;
-        units: string;
-        value: number;
-      }
-    | undefined;
+interface Result {
+  key: string;
+  label: string;
+  units: string;
+  value: number;
 }
 
-export interface ResultsProviderProps {
-  values: ResultsProps;
+interface Results {
+  [index: string]: Result;
+}
+
+interface ResultsContextProps {
+  results: Results;
+  setResults: (results: Results) => void;
+}
+
+interface ResultsProviderProps {
+  values: Results;
   children?: React.ReactNode;
 }
 
-export const ResultsContext = createContext<any>({});
+const ResultsContext = createContext<ResultsContextProps>(
+  {} as ResultsContextProps
+);
 
 export const ResultsProvider = ({
   values,
   children,
 }: ResultsProviderProps): JSX.Element => {
-  const [results, setResults] = useState<ResultsProps>(values);
+  const [results, setResults] = useState<Results>(values);
 
   const providerValue = {
     results,
