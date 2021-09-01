@@ -1,5 +1,6 @@
 .App {
-  display: grid;
+  @apply grid min-h-screen;
+
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto repeat(7, 1fr);
   grid-column-gap: 0;
