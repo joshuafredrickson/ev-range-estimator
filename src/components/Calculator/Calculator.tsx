@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useCalculations } from '../../context/Calculations';
+import { useResults } from '../../context/Results';
 import CalculatorItem from '../CalculatorItem/CalculatorItem';
 import './Calculator.scss';
 
 const Calculator: React.FC = () => {
   const { calculations, setCalculations } = useCalculations();
+  const { results, setResults } = useResults();
 
   useEffect(() => {
     setCalculations({
@@ -33,6 +35,27 @@ const Calculator: React.FC = () => {
         value: 0,
       },
     });
+
+    setResults({
+      efficiency: {
+        key: 'efficiency',
+        label: 'Efficiency',
+        units: 'mi/kwh',
+        value: 0,
+      },
+      rangeRemaining: {
+        key: 'rangeRemaining',
+        label: 'Remaining',
+        units: 'mi',
+        value: 0,
+      },
+      totalRange: {
+        key: 'totalRange',
+        label: 'Total Range',
+        units: 'mi',
+        value: 0,
+      },
+    });
   }, []);
 
   useEffect(() => {
@@ -45,17 +68,14 @@ const Calculator: React.FC = () => {
     const capacityUsed = batteryPercentage * calculations.batteryCapacity.value;
     const capacityRemaining = calculations.batteryCapacity.value - capacityUsed;
     const milesPerKwh = calculations.distanceDriven.value / capacityUsed;
-    const milesRemaining = milesPerKwh * capacityRemaining;
-    const totalRange = milesRemaining + calculations.distanceDriven.value;
+    const rangeRemaining = milesPerKwh * capacityRemaining;
+    const totalRange = rangeRemaining + calculations.distanceDriven.value;
 
-    console.log(
-      batteryPercentage,
-      capacityUsed,
-      capacityRemaining,
-      milesPerKwh,
-      milesRemaining,
-      totalRange
-    );
+    setResults({
+      efficiency: { ...results.efficiency, value: milesPerKwh },
+      rangeRemaining: { ...results.rangeRemaining, value: rangeRemaining },
+      totalRange: { ...results.totalRange, value: totalRange },
+    });
   }, [calculations]);
 
   return (

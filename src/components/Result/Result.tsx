@@ -1,31 +1,42 @@
 import React from 'react';
+import { useResults } from '../../context/Results';
 
 export interface ResultProps {
-  type: 'remaining' | 'total' | 'efficiency';
+  type: 'rangeRemaining' | 'totalRange' | 'efficiency';
   value?: number;
 }
 
-const Results: React.FC<ResultProps> = (props) => {
+const Result = ({ type }: ResultProps): JSX.Element => {
+  const { results } = useResults();
+  const result = results ? results[type] : null;
+
+  if (!result) {
+    return <></>;
+  }
+
   return (
     <div
       className={`flex flex-col items-center justify-center landscape:w-full ${
-        props.type === 'efficiency'
+        result.key === 'efficiency'
           ? 'bg-green-700 text-white h-auto w-full p-3'
           : 'text-gray-800 landscape:h-full w-1/2 p-6'
       }`}
     >
       <span
         className={`block whitespace-nowrap ${
-          props.type === 'efficiency' ? 'text-xl' : 'text-3xl'
+          result.key === 'efficiency' ? 'text-xl' : 'text-3xl'
         }`}
       >
-        {props.value ?? <>&ndash;</>} mi
-        {props.type === 'efficiency' ? '/kwh' : ''}
+        {result.key === 'efficiency' ? (
+          <>{Math.round((result.value + Number.EPSILON) * 100) / 100}</>
+        ) : (
+          <>{Math.round(result.value)}</>
+        )}{' '}
+        {result.units}
       </span>
-      {props.type === 'remaining' && <>Remaining</>}
-      {props.type === 'total' && <>Total Range</>}
+      {result.label}
     </div>
   );
 };
 
-export default Results;
+export default Result;
