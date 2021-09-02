@@ -29,9 +29,15 @@ const Result = ({ type }: ResultProps): JSX.Element => {
         }`}
       >
         {result.key === 'efficiency' ? (
-          <>{Math.round((result.value + Number.EPSILON) * 100) / 100}</>
+          <>
+            {result.value > 0 ? (
+              Math.round((result.value + Number.EPSILON) * 100) / 100
+            ) : (
+              <>&ndash;</>
+            )}
+          </>
         ) : (
-          <>{Math.round(result.value)}</>
+          <>{result.value > 0 ? Math.round(result.value) : <>&ndash;</>}</>
         )}{' '}
         {result.units}
       </span>
