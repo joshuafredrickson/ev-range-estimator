@@ -1,6 +1,7 @@
 {
   "short_name": "EV Range Estimator",
   "name": "EV Range Estimator",
+  "description": "Estimate your EV's actual range based on miles driven and kwh usage",
   "icons": [
     {
       "src": "favicon.ico",
