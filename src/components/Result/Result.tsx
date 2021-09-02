@@ -15,7 +15,8 @@ const Result = ({ type }: ResultProps): JSX.Element => {
   }
 
   return (
-    <div
+    <section
+      aria-label="Results"
       className={`flex flex-col items-center justify-center landscape:w-full ${
         result.key === 'efficiency'
           ? 'bg-green-700 text-white h-auto w-full p-3'
@@ -35,7 +36,7 @@ const Result = ({ type }: ResultProps): JSX.Element => {
         {result.units}
       </span>
       {result.label}
-    </div>
+    </section>
   );
 };
 

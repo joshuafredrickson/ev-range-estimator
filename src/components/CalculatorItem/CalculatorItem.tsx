@@ -113,7 +113,9 @@ const CalculatorItem = ({ type }: CalculatorItemProps): JSX.Element => {
               : ''
           }`}
         >
-          <span className="w-full">{itemType.label}</span>
+          <label className="w-full" htmlFor={itemType.key}>
+            {itemType.label}
+          </label>
           <span className="flex items-center w-full mt-auto">
             <input
               type="number"
@@ -122,6 +124,8 @@ const CalculatorItem = ({ type }: CalculatorItemProps): JSX.Element => {
               max={itemType.units === '%' ? 100 : undefined}
               step={itemType.key === 'batteryCapacity' ? 0.1 : 1}
               value={itemType.value}
+              id={itemType.key}
+              name={itemType.key}
               onChange={handleChange}
               onFocus={(event: React.FocusEvent) => {
                 const target = event.target as HTMLInputElement;
