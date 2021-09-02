@@ -119,7 +119,7 @@ const CalculatorItem = ({ type }: CalculatorItemProps): JSX.Element => {
           <span className="flex items-center w-full mt-auto">
             <input
               type="number"
-              className="py-1 mr-2 text-3xl bg-transparent border-b border-gray-500 CalculatorItem__input"
+              className="py-1 mr-2 text-3xl bg-gray-800 border-b border-gray-500 CalculatorItem__input"
               min={0}
               max={itemType.units === '%' ? 100 : undefined}
               step={itemType.key === 'batteryCapacity' ? 0.1 : 1}

@@ -3,7 +3,7 @@
 
   // Readonly/disabled styles shouldn't be applied when this attribute is present.
   &[data-oaf-keyboard-hack] {
-    @apply bg-transparent #{!important};
+    @apply bg-gray-800 #{!important};
   }
 }
 
