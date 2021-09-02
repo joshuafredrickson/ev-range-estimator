@@ -6,7 +6,7 @@ const Header: React.FC = () => {
   return (
     <header className="p-2 Header">
       <a href="/">
-        <img src={logo} className="w-12" alt="EV Range Estimator" />
+        <img src={logo} style={{ width: '3rem' }} alt="EV Range Estimator" />
       </a>
     </header>
   );
