@@ -1,5 +1,10 @@
 .CalculatorItem__input {
   width: calc(100% - 2rem);
+
+  // Readonly/disabled styles shouldn't be applied when this attribute is present.
+  &[data-oaf-keyboard-hack] {
+    @apply bg-gray-700 #{!important};
+  }
 }
 
 .CalculatorItem__unit {

@@ -79,14 +79,14 @@ const Calculator: React.FC = () => {
   }, [calculations]);
 
   return (
-    <section className="flex flex-col justify-center p-2 text-white Calculator">
+    <form className="flex flex-col justify-center p-2 text-white Calculator">
       <CalculatorItem type="batteryCapacity" />
       <div className="landscape:flex landscape:flex-row">
         <CalculatorItem type="batteryStart" />
         <CalculatorItem type="batteryEnd" />
       </div>
       <CalculatorItem type="distanceDriven" />
-    </section>
+    </form>
   );
 };
 
