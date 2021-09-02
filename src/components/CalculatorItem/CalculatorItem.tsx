@@ -106,12 +106,18 @@ const CalculatorItem = ({ type }: CalculatorItemProps): JSX.Element => {
   return (
     <>
       {itemType && (
-        <p className="flex flex-wrap w-full mb-6 CalculatorItem">
+        <p
+          className={`flex flex-col mb-6 CalculatorItem ${
+            itemType.key === 'batteryStart' || itemType.key === 'batteryEnd'
+              ? 'px-4'
+              : ''
+          }`}
+        >
           <span className="w-full">{itemType.label}</span>
-          <span className="flex items-center w-full">
+          <span className="flex items-center w-full mt-auto">
             <input
               type="number"
-              className="w-full p-2 mr-2 text-lg bg-gray-700 border border-gray-900 rounded CalculatorItem__input"
+              className="py-1 mr-2 text-3xl bg-transparent border-b border-gray-500 CalculatorItem__input"
               min={0}
               max={itemType.units === '%' ? 100 : undefined}
               step={itemType.key === 'batteryCapacity' ? 0.1 : 1}

@@ -9,6 +9,7 @@ const Calculator: React.FC = () => {
   const { results, setResults } = useResults();
 
   useEffect(() => {
+    // TODO: Store these values
     setCalculations({
       batteryCapacity: {
         key: 'batteryCapacity',
@@ -79,9 +80,9 @@ const Calculator: React.FC = () => {
   }, [calculations]);
 
   return (
-    <form className="flex flex-col justify-center p-2 text-white Calculator">
+    <form className="flex flex-col justify-center px-8 py-1 text-white Calculator">
       <CalculatorItem type="batteryCapacity" />
-      <div className="landscape:flex landscape:flex-row">
+      <div className="flex flex-row -mx-4">
         <CalculatorItem type="batteryStart" />
         <CalculatorItem type="batteryEnd" />
       </div>

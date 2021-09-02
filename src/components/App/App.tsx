@@ -14,7 +14,7 @@ const App: React.FC = () => {
   return (
     <CalculationsProvider values={calculations}>
       <ResultsProvider values={results}>
-        <div className="w-full h-full App">
+        <div className="w-full h-screen App">
           <Header />
           <Calculator />
           <Results />
