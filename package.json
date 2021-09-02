@@ -15,7 +15,7 @@
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "typescript": "^4.4.2",
-    "web-vitals": "^0.2.4",
+    "web-vitals": "^2.1.0",
     "workbox-background-sync": "^6.2.4",
     "workbox-broadcast-update": "^6.2.4",
     "workbox-cacheable-response": "^5.1.3",
