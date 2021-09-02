@@ -32,7 +32,7 @@ const CalculatorItem = ({ type }: CalculatorItemProps): JSX.Element => {
           <span className="w-full">{itemType.label}</span>
           <span className="flex items-center w-full">
             <input
-              itemType="number"
+              type="number"
               className="w-full p-2 mr-2 text-lg bg-gray-700 border border-gray-900 rounded CalculatorItem__input"
               min={0}
               max={itemType.units === '%' ? 100 : undefined}
