@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSettings } from '../../context/Settings';
 import { useCalculations } from '../../context/Calculations';
 // import { hideOnscreenKeyboard } from 'oaf-side-effects';
 import './CalculatorItem.scss';
@@ -8,7 +9,9 @@ export interface CalculatorItemProps {
 }
 
 const CalculatorItem = ({ type }: CalculatorItemProps): JSX.Element => {
+  const { settings } = useSettings();
   const { calculations, setCalculations } = useCalculations();
+
   const itemType = calculations
     ? calculations[type]
     : { key: '', label: '', units: '', value: 0 };
@@ -142,7 +145,11 @@ const CalculatorItem = ({ type }: CalculatorItemProps): JSX.Element => {
                 }
               }}
             />
-            <span className="CalculatorItem__unit">{itemType.units}</span>
+            <span className="CalculatorItem__unit">
+              {itemType.units === 'distance'
+                ? settings.distanceUnits
+                : itemType.units}
+            </span>
           </span>
         </p>
       )}

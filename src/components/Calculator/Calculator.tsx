@@ -32,7 +32,7 @@ const Calculator: React.FC = () => {
       distanceDriven: {
         key: 'distanceDriven',
         label: 'Distance Driven',
-        units: 'mi',
+        units: 'distance',
         value: 0,
       },
     });
@@ -41,19 +41,19 @@ const Calculator: React.FC = () => {
       efficiency: {
         key: 'efficiency',
         label: 'Efficiency',
-        units: 'mi/kwh',
+        units: 'distance/kwh',
         value: 0,
       },
       rangeRemaining: {
         key: 'rangeRemaining',
         label: 'Remaining',
-        units: 'mi',
+        units: 'distance',
         value: 0,
       },
       totalRange: {
         key: 'totalRange',
         label: 'Total Range',
-        units: 'mi',
+        units: 'distance',
         value: 0,
       },
     });

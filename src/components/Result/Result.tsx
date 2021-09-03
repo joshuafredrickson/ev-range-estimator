@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSettings } from '../../context/Settings';
 import { useResults } from '../../context/Results';
 
 export interface ResultProps {
@@ -7,6 +8,7 @@ export interface ResultProps {
 }
 
 const Result = ({ type }: ResultProps): JSX.Element => {
+  const { settings } = useSettings();
   const { results } = useResults();
   const result = results ? results[type] : null;
 
@@ -39,7 +41,11 @@ const Result = ({ type }: ResultProps): JSX.Element => {
         ) : (
           <>{result.value > 0 ? Math.round(result.value) : <>&ndash;</>}</>
         )}{' '}
-        {result.units}
+        {result.units === 'distance'
+          ? settings.distanceUnits
+          : result.units.includes('distance')
+          ? result.units.replace('distance', settings.distanceUnits)
+          : result.units}
       </span>
       {result.label}
     </section>
