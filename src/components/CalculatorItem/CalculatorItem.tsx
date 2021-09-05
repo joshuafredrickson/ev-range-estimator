@@ -145,7 +145,7 @@ const CalculatorItem = ({ type }: CalculatorItemProps): JSX.Element => {
                 }
               }}
             />
-            <span className="CalculatorItem__unit">
+            <span className="CalculatorItem__unit" translate="no">
               {itemType.units === 'distance'
                 ? settings.distanceUnits
                 : itemType.units}

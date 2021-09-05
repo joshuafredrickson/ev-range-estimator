@@ -39,7 +39,10 @@ const Header: React.FC = () => {
             onClick={handleClick}
             value="mi"
           >
-            MI
+            <span className="sr-only">Miles</span>
+            <span aria-hidden="true" translate="no">
+              MI
+            </span>
           </button>
           <button
             className={`px-2 py-1 text-xs font-bold text-gray-300 transition-colors rounded-r ${
@@ -50,7 +53,10 @@ const Header: React.FC = () => {
             onClick={handleClick}
             value="km"
           >
-            KM
+            <span className="sr-only">Kilometers</span>
+            <span aria-hidden="true" translate="no">
+              KM
+            </span>
           </button>
         </div>
       </div>

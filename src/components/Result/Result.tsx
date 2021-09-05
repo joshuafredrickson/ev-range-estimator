@@ -29,6 +29,7 @@ const Result = ({ type }: ResultProps): JSX.Element => {
         className={`block whitespace-nowrap ${
           result.key === 'efficiency' ? 'text-xl' : 'text-3xl'
         }`}
+        translate="no"
       >
         {result.key === 'efficiency' ? (
           <>
