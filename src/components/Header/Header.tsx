@@ -38,6 +38,7 @@ const Header: React.FC = () => {
             }`}
             onClick={handleClick}
             value="mi"
+            translate="no"
           >
             MI
           </button>
@@ -49,6 +50,7 @@ const Header: React.FC = () => {
             }`}
             onClick={handleClick}
             value="km"
+            translate="no"
           >
             KM
           </button>
