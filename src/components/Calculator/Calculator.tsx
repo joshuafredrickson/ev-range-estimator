@@ -67,13 +67,15 @@ const Calculator: React.FC = () => {
     const batteryPercentage =
       (calculations.batteryStart.value - calculations.batteryEnd.value) / 100;
     const capacityUsed = batteryPercentage * calculations.batteryCapacity.value;
-    const capacityRemaining = calculations.batteryCapacity.value - capacityUsed;
-    const milesPerKwh = calculations.distanceDriven.value / capacityUsed;
-    const rangeRemaining = milesPerKwh * capacityRemaining;
-    const totalRange = rangeRemaining + calculations.distanceDriven.value;
+    const capacityRemaining =
+      (calculations.batteryCapacity.value * calculations.batteryEnd.value) /
+      100;
+    const distancePerKwh = calculations.distanceDriven.value / capacityUsed;
+    const rangeRemaining = distancePerKwh * capacityRemaining;
+    const totalRange = calculations.batteryCapacity.value * distancePerKwh;
 
     setResults({
-      efficiency: { ...results.efficiency, value: milesPerKwh },
+      efficiency: { ...results.efficiency, value: distancePerKwh },
       rangeRemaining: { ...results.rangeRemaining, value: rangeRemaining },
       totalRange: { ...results.totalRange, value: totalRange },
     });
