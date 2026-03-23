@@ -4,7 +4,7 @@
   "packageManager": "yarn@1.22.22",
   "scripts": {
     "start": "craco start",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider craco build",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider GENERATE_SOURCEMAP=false craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
   },
