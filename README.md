@@ -1,5 +1,7 @@
 # EV Range Estimator
 
+[https://ev-range-estimator.pages.dev/](https://ev-range-estimator.pages.dev/)
+
 Estimate your EV's actual range based on miles driven and kwh usage. Works offline (and anywhere) when installed as a PWA.
 
 Thanks to GvilleGuy for the [inspiration](https://www.youtube.com/watch?v=IovK4pfPunc).
