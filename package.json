@@ -1,6 +1,7 @@
 {
   "name": "ev-range-estimator",
   "version": "0.1.0",
+  "packageManager": "yarn@1.22.22",
   "scripts": {
     "start": "craco start",
     "build": "craco build",
